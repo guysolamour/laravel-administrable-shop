@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
-use Guysolamour\Administrable\Models\Extensions\Shop\CartItem;
+use Guysolamour\Administrable\Extensions\Shop\Models\CartItem;
 use Guysolamour\Administrable\Extensions\Shop\Exceptions\CartException;
 
 

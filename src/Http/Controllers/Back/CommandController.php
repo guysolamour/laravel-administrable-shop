@@ -305,7 +305,7 @@ class CommandController extends BaseController
         $sold_out_products = config('administrable-shop.models.product')::soldOut()->limit(10)->get();
 
 
-        return back_view("extensions.shop.statistic.index", compact(
+        return view('administrable-shop::' . Str::lower(config('administrable.back_namespace')) . '.statistic.index', compact(
             'orders',
             'current_month_amount',
             'current_year_amount',

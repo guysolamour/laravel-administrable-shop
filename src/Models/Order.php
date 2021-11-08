@@ -47,7 +47,7 @@ class Order extends BaseModel implements HasPdfInvoiceContract
 
     public function command()
     {
-        return $this->belongsTo(config('administrable.extensions.shop.models.command'));
+        return $this->belongsTo(config('administrable-shop.models.command'));
     }
 
     /**

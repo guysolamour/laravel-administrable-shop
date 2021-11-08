@@ -130,7 +130,7 @@ class ProductController extends BaseController
 
         $types = config('administrable-shop.models.product')::getTypes();
 
-        return back_view('administrable-shop::' . Str::lower(config('administrable.back_namespace')) . '.products.edit', compact(
+        return view('administrable-shop::' . Str::lower(config('administrable.back_namespace')) . '.products.edit', compact(
             'product', 'product_attributes', 'categories', 'brands', 'products', 'coverage_areas', 'delivers',
             'types'
         ));

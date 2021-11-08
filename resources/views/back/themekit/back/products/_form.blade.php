@@ -685,16 +685,16 @@ x-show="tab === 'tab-advanced'" id="v-pills-advance" role="tabpanel">
         </div>
     </div>
 
-
-    @include(back_view_path('extensions.shop.products._category'), [
+    @include('administrable-shop::' . Str::lower(config('administrable.back_namespace')) . '.products._category', [
         'categories'  => $categories,
-        'product' => $product,
+        'product'    => $product,
     ])
 
-    @include(back_view_path('extensions.shop.products._brand'), [
+    @include('administrable-shop::' . Str::lower(config('administrable.back_namespace')) . '.products._brand', [
         'brands'  => $brands,
         'product' => $product,
     ])
+
 
     @if(config('administrable-shop.custom_fields.product', []))
     <div class="card">

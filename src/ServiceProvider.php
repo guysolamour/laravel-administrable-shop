@@ -15,9 +15,9 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     public function boot()
     {
-        $this->app->bind('administrable-shop-helper', fn () => new Helper);
-        $this->app->bind('administrable-shop-cart', fn () => new Cart);
-        $this->app->bind(self::PACKAGE_NAME . '-shop', fn () => new Shop);
+        $this->app->bind(self::PACKAGE_NAME . '-helper', fn () => new Helper);
+        $this->app->bind(self::PACKAGE_NAME . '-cart', fn () => new Cart);
+        $this->app->bind(self::PACKAGE_NAME, fn () => new Shop);
 
 
         $this->publishes([
@@ -27,7 +27,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->publishes([
             static::packagePath('resources/lang') => resource_path('lang/vendor/' . static::PACKAGE_NAME),
         ], static::PACKAGE_NAME . '-lang');
-
 
 
         $this->registerEvents();
@@ -64,7 +63,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         require static::packagePath('/src/Helpers/helpers.php');
     }
-
 
     public function register()
     {
