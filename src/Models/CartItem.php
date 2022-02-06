@@ -3,7 +3,6 @@
 namespace Guysolamour\Administrable\Extensions\Shop\Models;
 
 use Illuminate\Support\Arr;
-use Guysolamour\Administrable\Extensions\Shop\Exceptions\CartException;
 use Guysolamour\Administrable\Extensions\Shop\Contracts\ShopContract;
 
 
@@ -61,6 +60,10 @@ class CartItem
             return null;
         }
 
+        if (!class_exists( Arr::get($item, 'model'))){
+            return null;
+        }
+
         return Arr::get($item, 'model')::find(Arr::get($item, 'rowId'));
     }
 
@@ -77,7 +80,7 @@ class CartItem
             return $this->model->name;
         }
 
-        throw new CartException("The name is required if the model is not an object and/or does not implements getName Method");
+        return  '';
     }
 
     private function calculateSubtotal() : int
