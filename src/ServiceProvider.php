@@ -25,7 +25,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         ], self::PACKAGE_NAME . '-config');
 
         $this->publishes([
-            static::packagePath('resources/lang') => resource_path('lang/vendor/' . static::PACKAGE_NAME),
+            static::packagePath('resources/lang') => $this->app->langPath('vendor/' . static::PACKAGE_NAME),
         ], static::PACKAGE_NAME . '-lang');
 
 

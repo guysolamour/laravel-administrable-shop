@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix(config('administrable.auth_prefix_path') . "/extensions/") ->middleware(['web'])->group(function () {
+Route::prefix(config('administrable.auth_prefix_path') . "/extensions/") ->middleware([Str::lower(config('administrable.guard')) . '.auth'])->group(function () {
 
     /*
     |--------------------------------------------------------------------------
