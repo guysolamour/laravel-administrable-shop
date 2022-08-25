@@ -93,7 +93,7 @@ class CommandController extends BaseController
 
         ];
 
-        if ($request->input('deliver.id') && $request->deliver('deliver.area')) {
+        if ($request->input('deliver.id') && $request->input('deliver.area')) {
             $data['deliver'] = [
                 'deliver_id' => $request->input('deliver.id'),
                 'area_id'    => $request->input('deliver.area'),
@@ -116,7 +116,9 @@ class CommandController extends BaseController
             ];
         }, json_decode($request->input('notes'), true));
 
-        $command->notes()->createMany($notes);
+        if (!empty($notes)){
+            $command->notes()->createMany($notes);
+        }
 
         flashy("La commande a été bien ajoutée");
 
